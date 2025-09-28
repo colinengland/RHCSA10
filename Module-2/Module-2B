@@ -1,0 +1,93 @@
+# get what user is logged in:
+whoami
+
+# get your systems hostname;
+hostname
+
+# get your ip address:
+ip addr
+
+# list all files in the current directory:
+ls
+
+# list all the files with more information on the /etc directory
+ls -l /etc
+
+# list hidden files
+ls -a
+
+# sudo (super user do) on the directory where administrator privileges are required.
+sudo ls -l /etc
+
+# print working directory
+pwd
+
+# change directory you currently are in
+cd /var/log
+
+# change to your home directory
+cd ~
+
+# go back to the location you were before
+cd -
+
+# search previous commands
+# Ctrl + R
+# or
+# Up/Down
+
+# view contents of a large file
+less /var/log/messages
+# or
+more /var/log/message
+
+# print the first 10 lines 
+head -n 10 /etc/passwd
+
+# print the last 10 lines
+tail -n 10 /etc/passwd
+
+# follow the output of a file (live logs)
+tail -f /var/log/secure
+
+# edit a file to add text
+vi /etc/motd
+# inside vi: press i, type "Welcome to this server", Esc :wq
+# or can use
+nano /etc/motd
+
+# print output of small file
+cat /etc/motd
+
+# store output of script to file, good for logging
+ls /etc > etc-list.txt
+
+# append file with output
+echo "New entry" >> etc-list.txt
+
+# store error output of script to file
+ls /notreal 2> errors.txt
+
+# search a file for keyword, e.g. sshd
+cat /var/log/secure | grep sshd
+
+# connect to system via SSH e.g. username = user and ip = 10.0.2.15
+ssh user@10.0.2.15
+
+# end ssh session
+exit
+
+# add multiple files to a tar archive (uncompressed)
+tar cvf ssh-configs.tar /etc/ssh/sshd_config /etc/ssh/ssh_config
+
+# extract to /tmp
+tar xvf ssh-configs.tar -C /tmp
+
+# add contents of /var/log/messages to a compressed (gunzip archive)
+tar czvf logs.tar.gz /var/log/messages
+
+# extract to /tmp
+tar xzvf logs.tar.gz -C /tmp
+
+# view contents of archive
+tar tvf archive.tar
